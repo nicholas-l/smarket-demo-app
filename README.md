@@ -1,4 +1,6 @@
-To run,
+To run with docker, build the image then run with port 3000 exposed.
+
+To with node run,
 
 ```
 yarn install
