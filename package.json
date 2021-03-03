@@ -16,7 +16,7 @@
     "@types/react-window": "^1.8.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^4.0.3",
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
     "react-window-infinite-loader": "^1.0.7",
