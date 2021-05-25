@@ -9,7 +9,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.7",
     "@types/jest": "25.2.1",
-    "@types/node": "15.6.0",
+    "@types/node": "15.6.1",
     "@types/react": "17.0.6",
     "@types/react-dom": "17.0.5",
     "@types/react-virtualized-auto-sizer": "^1.0.0",
