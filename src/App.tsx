@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import {
   createTheme,
-  makeStyles,
-  Theme,
+  styled,
   ThemeProvider,
 } from "@material-ui/core/styles";
 
@@ -25,29 +24,23 @@ type EventsResponse = {
   };
 };
 
-const useStyles = makeStyles((theme: Theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    flex: "auto",
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  controls: { display: "flex" },
+const StyledSelect = styled(Select)(({ theme }) => ({
+  margin: theme.spacing(1),
+  minWidth: 120,
+  flex: "auto",
 }));
+
+
+const StyledDiv = styled('div')(({ theme }) => ({
+  display: "flex",
+}));
+
 
 export function App() {
   const [eventType, setEventType] = useState<string>(DEFAULT_TYPE);
   const [events, setEvents] = useState<Array<SmarketsEventType>>([]);
   const [hasNextPage, setNextPage] = useState<string | null>(null);
   const [eventState, setEventState] = useState(DEFAULT_STATE);
-  const classes = useStyles();
 
   // Allows aborting the fetch in flight.
   let controller: AbortController | null = null;
@@ -121,26 +114,24 @@ export function App() {
   return (
     <div className="App">
       <AppBar />
-      <div className={classes.controls}>
-        <Select
+      <StyledDiv>
+        <StyledSelect
           id="type-select"
           title="Event Type"
           value={eventType}
           onChange={handleEventChange}
-          className={classes.formControl}
           values={EVENT_TYPES}
           helper="Select event type to filter"
         />
-        <Select
+        <StyledSelect
           id="state-select"
           title="Event State"
           value={eventState}
           onChange={handleEventStateChange}
-          className={classes.formControl}
           values={EVENT_STATES}
           helper="Select event state to filter"
         />
-      </div>
+      </StyledDiv>
       <Divider />
       <div style={{ flex: "auto", display: "flex" }}>
         <EventList
