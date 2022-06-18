@@ -1,5 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import {
+  createTheme,
+  makeStyles,
+  Theme,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 
 import Divider from "@material-ui/core/Divider";
 
@@ -20,26 +25,24 @@ type EventsResponse = {
   };
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-      flex: "auto"
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2)
-    },
-    root: {
-      width: "100%",
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper
-    },
-    controls: { display: "flex" }
-  })
-);
+const useStyles = makeStyles((theme: Theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    flex: "auto",
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  root: {
+    width: "100%",
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
+  controls: { display: "flex" },
+}));
 
-export default function App() {
+export function App() {
   const [eventType, setEventType] = useState<string>(DEFAULT_TYPE);
   const [events, setEvents] = useState<Array<SmarketsEventType>>([]);
   const [hasNextPage, setNextPage] = useState<string | null>(null);
@@ -50,14 +53,14 @@ export default function App() {
   let controller: AbortController | null = null;
 
   const handleEventChange = useCallback(
-    event => {
+    (event) => {
       setEventType(event.target.value);
     },
     [setEventType]
   );
 
   const handleEventStateChange = useCallback(
-    event => {
+    (event) => {
       setEventState(event.target.value);
     },
     [setEventState]
@@ -75,7 +78,7 @@ export default function App() {
     const res = await fetch(url, { signal });
     const {
       events: moreEvents,
-      pagination: { next_page }
+      pagination: { next_page },
     }: EventsResponse = await res.json();
     controller = null;
     moreEvents.sort((a, b) => a.display_order - b.display_order);
@@ -95,8 +98,8 @@ export default function App() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventType, eventState]);
-  
-  // Function callback that checks if the 
+
+  // Function callback that checks if the
   const isItemLoaded = useCallback(
     (index: number) => !hasNextPage || index < events.length,
     [hasNextPage, events]
@@ -148,5 +151,15 @@ export default function App() {
         />
       </div>
     </div>
+  );
+}
+
+const theme = createTheme();
+
+export default function ThemedApp() {
+  return (
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   );
 }

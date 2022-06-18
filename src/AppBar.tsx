@@ -2,10 +2,10 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import { Theme, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+  ({
     root: {
       flexGrow: 1
     },
