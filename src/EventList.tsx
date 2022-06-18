@@ -2,7 +2,7 @@ import React, { memo, useMemo } from "react";
 import { FixedSizeList } from "react-window";
 import InfiniteLoader from "react-window-infinite-loader";
 import AutoSizer from "react-virtualized-auto-sizer";
-import List from "@material-ui/core/List";
+import List from "@mui/material/List";
 import RowRender from "./RowRender";
 import { SmarketsEventType } from "./SmarketsEvent";
 

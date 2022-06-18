@@ -3,9 +3,10 @@ import {
   createTheme,
   styled,
   ThemeProvider,
-} from "@material-ui/core/styles";
+  StyledEngineProvider,
+} from "@mui/material/styles";
 
-import Divider from "@material-ui/core/Divider";
+import Divider from "@mui/material/Divider";
 
 import "./App.css";
 import AppBar from "./AppBar";
@@ -30,11 +31,9 @@ const StyledSelect = styled(Select)(({ theme }) => ({
   flex: "auto",
 }));
 
-
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled("div")(({ theme }) => ({
   display: "flex",
 }));
-
 
 export function App() {
   const [eventType, setEventType] = useState<string>(DEFAULT_TYPE);
@@ -149,8 +148,10 @@ const theme = createTheme();
 
 export default function ThemedApp() {
   return (
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }

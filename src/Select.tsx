@@ -1,16 +1,16 @@
 import React, { memo } from "react";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import { removeUnderscoreAndCapitalise } from './common';
 
 interface EventSelectProps {
   id: string;
   className?: string;
-  onChange(event: React.ChangeEvent<any>): void;
+  onChange(event: SelectChangeEvent<any>): void;
   value: string;
   values: Readonly<Array<string>>;
   title: string;
