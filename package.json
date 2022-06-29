@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/runtime": "^7.18.3"
+    "@babel/runtime": "^7.18.6"
   }
 }
