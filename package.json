@@ -21,7 +21,7 @@
     "react-scripts": "^5.0.1",
     "react-virtualized-auto-sizer": "^1.0.11",
     "react-window": "^1.8.9",
-    "react-window-infinite-loader": "^1.0.8",
+    "react-window-infinite-loader": "^1.0.9",
     "typescript": "5.0.4"
   },
   "scripts": {
