@@ -47,5 +47,8 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.22.5"
+  },
+  "overrides": {
+    "typescript": "5.1.3"
   }
 }

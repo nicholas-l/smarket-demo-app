@@ -1,9 +1,9 @@
-FROM node:13
+FROM node:20
 
 WORKDIR /app
 
 COPY server /app
-RUN yarn install
+RUN npm ci
 
 COPY build /app/build
 
