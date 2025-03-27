@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^5.16.7",
+    "@mui/material": "^7.0.0",
     "@mui/styles": "^6.2.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
