@@ -7,7 +7,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
-    "@mui/styles": "^6.4.10",
+    "@mui/styles": "^6.4.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "29.5.13",
